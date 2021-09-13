@@ -1,19 +1,16 @@
 package org.example;
 
 public class Savings extends Account{
-    private double zakat;
+    private double zakat, interest_rate;
 
-    public Savings(){
-        super();
-        zakat = 0;
-    }
-
-    public Savings(String a, String b, String c, String d, int e){
+    public Savings(String a, String b, String c, String d, double e){
         super(a,b, c, d, e);
         zakat = 0;
+        interest_rate = 0;
     }
 
-    public void calculateZakat(double a){
+
+    public void calculateZakat(){
         zakat = getBalance() * 2.5 / 100;
     }
 
@@ -28,5 +25,9 @@ public class Savings extends Account{
         else{
             balance -= a;
         }
+    }
+
+    public  void specify_interestRate(double a){
+        interest_rate = a;
     }
 }

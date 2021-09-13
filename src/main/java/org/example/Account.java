@@ -1,21 +1,16 @@
 package org.example;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Account {
     protected String account_num, name, address, phone_num;
     protected double balance;
-    LocalDate date_created;
+    LocalDate date_created, transaction_date;
+    LocalTime transaction_time;
+    double last_transaction;
 
-    public Account(){
-        account_num = "";
-        name = "";
-        address = "";
-        phone_num = "";
-        balance = 0;
-    }
-
-    public Account(String a, String b, String c, String d, int e){
+    public Account(String a, String b, String c, String d, double e){
         account_num = a;
         name = b;
         address = c;
@@ -66,9 +61,20 @@ public class Account {
 
     public void make_deposit(double a){
         balance += a;
+        transaction_date = LocalDate.now();
+        transaction_time = LocalTime.now();
+        last_transaction = a;
     }
 
     public void make_withdrawal(double a){
-        System.out.print("Please Wait");
+        transaction_date = LocalDate.now();
+        transaction_time = LocalTime.now();
+        last_transaction = a;
+    }
+
+    public void print_statement(){
+        System.out.print("Customer Name: " + name + "\nAccount Number: " + account_num + "\nTime of Transaction: " + transaction_time +
+                "\nDate of Transaction: " + transaction_date +
+                "\nTransaction Amount: " + last_transaction + "\nRemaining Balance: " + getBalance());
     }
 }

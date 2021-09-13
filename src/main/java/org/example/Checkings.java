@@ -1,8 +1,11 @@
 package org.example;
 
 public class Checkings extends Account{
-    public Checkings(){
-        super();
+    double checking_tax;
+
+    public Checkings(String a, String b, String c, String d, double e){
+        super(a, b, c, d, e);
+        checking_tax = 0;
     }
 
     public void make_withdrawal(double a){
@@ -12,5 +15,6 @@ public class Checkings extends Account{
         else{
             balance -= a;
         }
+        
     }
 }
