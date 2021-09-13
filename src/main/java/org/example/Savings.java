@@ -20,4 +20,13 @@ public class Savings extends Account{
     public double getZakat(){
         return zakat;
     }
+
+    public void make_withdrawal(double a){
+        if(a>balance){
+            System.out.print("You can't withdrawal the specified amount");
+        }
+        else{
+            balance -= a;
+        }
+    }
 }

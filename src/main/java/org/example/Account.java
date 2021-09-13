@@ -3,8 +3,8 @@ package org.example;
 import java.time.LocalDate;
 
 public class Account {
-    private String account_num, name, address, phone_num;
-    private int balance;
+    protected String account_num, name, address, phone_num;
+    protected double balance;
     LocalDate date_created;
 
     public Account(){
@@ -60,11 +60,15 @@ public class Account {
         return phone_num;
     }
 
-    public int getBalance(){
+    public double getBalance(){
         return balance;
     }
 
     public void make_deposit(double a){
         balance += a;
+    }
+
+    public void make_withdrawal(double a){
+        System.out.print("Please Wait");
     }
 }
